@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorMorado">#FF00FF</color>
+    <color name="colorBlanco">#FFFFFF</color>
+    <color name="colorTransparente">#00000000</color>
+</resources>
