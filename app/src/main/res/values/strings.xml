@@ -2,5 +2,5 @@
     <string name="app_name">permisos</string>
     <string name="botonSolicitar">Solicitar Permisos</string>
     <string name="botonVerificar">Verificar Permisos</string>
-
+    <string name="TvInfo">Por favor active los permisos</string>
 </resources>

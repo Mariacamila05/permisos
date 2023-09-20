@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView camera;
     private TextView ubucation;
     private TextView galeria;
+    private TextView info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         String ubicacion = null;
         String galerias = null;
 
+        info.setVisibility(View.INVISIBLE);
         int statusPermisosCamara = ContextCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.CAMERA);
         int statusPermisosUbicacion = ContextCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.ACCESS_COARSE_LOCATION);
         int statusPermisosGaleria = ContextCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.READ_MEDIA_IMAGES);
@@ -63,11 +65,13 @@ public class MainActivity extends AppCompatActivity {
             galerias = "Desactivado";
         }
 
+
+
         camera.setText("El estado del permiso de la camara es: " + camara);
         ubucation.setText("El estado permiso de la ubicación es : " + ubicacion);
         galeria.setText("El estado permiso de la Galeria es: " + galerias);
-
         btnCheck.setEnabled(true);
+
     }
 
     public void solicitarPermisos(View view){
@@ -80,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         if(ActivityCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.READ_MEDIA_IMAGES )!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_MEDIA_IMAGES},REQUEST_CODE);
         }
+
+        info.setEnabled(false);
     }
     private void begin(){
         camera = findViewById(R.id.tvCamara);
@@ -87,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         galeria = findViewById(R.id.tvGaleria);
         btnPermisos = findViewById(R.id.btnSolicitar);
         btnCheck = findViewById(R.id.btnVerificar);
-
+        info = findViewById(R.id.tvInfo);
         btnCheck.setEnabled(true);
     }
 }
